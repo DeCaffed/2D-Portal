@@ -10,7 +10,7 @@ public class PlacingPortal : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -18,18 +18,22 @@ public class PlacingPortal : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.DrawRay(transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition)-transform.position, Color.green, 1f);
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition)-transform.position, 1000f, 1 << LayerMask.NameToLayer("PrettyWall"));
+            Debug.DrawRay(transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position, Color.green, 1f);
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position, 1000f, 1 << LayerMask.NameToLayer("PrettyWall"));
             Debug.Log(hit.collider.name);
-            if (hit.collider.tag == "PortalWall")
+            if (hit.collider.tag == "PortalWall" && !GameObject.Find(GreenPortal.name))
             {
-                GameObject tmpPortal = Instantiate(GreenPortal, hit.collider.transform );
+                GameObject tmpPortal = Instantiate(GreenPortal, hit.collider.transform);
+            }
+            else
+            {
+                GameObject.Find(GreenPortal.name).transform.position = hit.collider.transform.position;
             }
         }
     }
     //Detect if the right mouse button is pressed
- 
-   
+
+
 
 }
 
