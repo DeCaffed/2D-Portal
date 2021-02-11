@@ -33,7 +33,7 @@ public class Teleportation : MonoBehaviour
     }
     IEnumerator Teleport()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0f);
         Player.transform.position = Portal.transform.position+Portal.transform.up*Offset;
     }
     public void PortalOff()
