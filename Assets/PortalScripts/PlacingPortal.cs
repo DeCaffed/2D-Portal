@@ -18,8 +18,8 @@ public class PlacingPortal : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.DrawLine(transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition), Color.green, 1f);
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition), 1000f, 1 << LayerMask.NameToLayer("PrettyWall"));
+            Debug.DrawRay(transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition)-transform.position, Color.green, 1f);
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition)-transform.position, 1000f, 1 << LayerMask.NameToLayer("PrettyWall"));
             Debug.Log(hit.collider.name);
             if (hit.collider.tag == "PortalWall")
             {
