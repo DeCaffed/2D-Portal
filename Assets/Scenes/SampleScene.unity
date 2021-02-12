@@ -194,7 +194,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -5
+  m_SortingOrder: 1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -1812,7 +1812,7 @@ GameObject:
   - component: {fileID: 24956248}
   - component: {fileID: 24956249}
   - component: {fileID: 24956250}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: up
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1898,7 +1898,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -4
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 1b406db763320a145b05b11514e77f68, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2007,7 +2007,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -4
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 1b406db763320a145b05b11514e77f68, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2092,7 +2092,7 @@ GameObject:
   - component: {fileID: 214291633}
   - component: {fileID: 214291634}
   - component: {fileID: 214291635}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: down
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2178,7 +2178,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -4
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 1b406db763320a145b05b11514e77f68, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2383,7 +2383,7 @@ Transform:
   - {fileID: 1392632341}
   - {fileID: 85891495}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &867902196
 SpriteRenderer:
@@ -2565,7 +2565,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -4
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 1b406db763320a145b05b11514e77f68, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2577,36 +2577,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1017729299
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1017729300}
-  m_Layer: 0
-  m_Name: Portals
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1017729300
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1017729299}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1052735679
 GameObject:
   m_ObjectHideFlags: 0
@@ -2641,7 +2611,7 @@ Transform:
   - {fileID: 1722610284}
   - {fileID: 878814363}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1052735681
 SpriteRenderer:
@@ -2853,7 +2823,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -4
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 1b406db763320a145b05b11514e77f68, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2913,7 +2883,7 @@ Transform:
   m_Children:
   - {fileID: 1579197}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1710805825
 SpriteRenderer:
@@ -3063,7 +3033,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -4
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 1b406db763320a145b05b11514e77f68, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3254,18 +3224,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6268760909291762033, guid: 161e99bc063afe74e9bac6823ce53b39, type: 3}
-      propertyPath: PinkPortal
-      value: 
-      objectReference: {fileID: 6865531840956286904, guid: c6bccc047a8bc3f4a9435d418ec16b4a, type: 3}
-    - target: {fileID: 6268760909291762033, guid: 161e99bc063afe74e9bac6823ce53b39, type: 3}
-      propertyPath: PortalWall
-      value: 
-      objectReference: {fileID: 2863829099835791647, guid: 39f54c343c185a64896b3f7511a440e6, type: 3}
-    - target: {fileID: 6268760909291762033, guid: 161e99bc063afe74e9bac6823ce53b39, type: 3}
-      propertyPath: GreenPortal
-      value: 
-      objectReference: {fileID: 6113548176652234511, guid: 3265a6e398af0d14da7961c51282586d, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 161e99bc063afe74e9bac6823ce53b39, type: 3}
 --- !u!1001 &2863829101309727644

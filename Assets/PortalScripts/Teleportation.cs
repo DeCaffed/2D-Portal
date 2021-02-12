@@ -4,40 +4,70 @@ using UnityEngine;
 
 public class Teleportation : MonoBehaviour
 {
-    public float Offset = 0.5f;
-    public bool isactived = true;
-    public Teleportation Portal;
-    public GameObject Player;
+    public float offset;
+    public bool isActive;
+    private Teleportation portal;
+    private GameObject player;
+
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        offset = 0.5f;
+        isActive = true;
+
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    
-    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Player" && isactived)
+        if (collision.gameObject.CompareTag("Player") && isActive)
         {
-            Portal.PortalOff();
+            // Bin ich das pinke Portal?
+            if (this.CompareTag("PinkPortal"))
+            {
+                // Gibt es schon das grüne Portal?
+                if (GameObject.FindGameObjectWithTag("GreenPortal"))
+                {
+                    portal = GameObject.FindGameObjectWithTag("GreenPortal").GetComponent<Teleportation>();
+                }
+                else
+                {
+                    return;
+                }
+            }
+
+            // ... oder bin ich das grüne Portal?
+            else
+            {
+                // Gibt es schon das pink Portal?
+                if (GameObject.FindGameObjectWithTag("PinkPortal"))
+                {
+                    portal = GameObject.FindGameObjectWithTag("PinkPortal").GetComponent<Teleportation>();
+                }
+                else
+                {
+                    return;
+                }
+            }
+
+            portal.PortalOff();
             StartCoroutine(Teleport());
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        isactived = true;
+        isActive = true;
     }
+
     IEnumerator Teleport()
     {
-        yield return new WaitForSeconds(0f);
-        Player.transform.position = Portal.transform.position+Portal.transform.up*Offset;
+        yield return new WaitForSeconds(0.1f);
+        player.transform.position = portal.transform.position + portal.transform.up * -offset;
     }
+
     public void PortalOff()
     {
-        isactived = false;
+        isActive = false;
     }
 }
