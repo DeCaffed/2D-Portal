@@ -5,9 +5,17 @@ using UnityEngine;
 public class PlacingPortal : MonoBehaviour
 {
     public GameObject greenPortal;
+    public Sprite greenPortalTopSprite;
+    public Sprite greenPotalRightSprite;
+    public Sprite greenPortalLeftSprite;
     bool greenPortalOnWall;
+
     public GameObject pinkPortal;
+    public Sprite pinkPortalTopSprite;
+    public Sprite pinkPotalRightSprite;
+    public Sprite pinkPortalLeftSprite;
     bool pinkPortalOnWall;
+
 
     public GameObject portalWall;
 
@@ -38,7 +46,7 @@ public class PlacingPortal : MonoBehaviour
 
                 portalTarget = hit.transform.position - transform.position;
                 Debug.DrawRay(transform.position, portalTarget, Color.green, 1f);
-                Debug.Log(hit.collider.name);
+                //Debug.Log(hit.collider.name);
 
                 if (hit.transform.CompareTag("PortalWall"))
                 {
@@ -58,18 +66,35 @@ public class PlacingPortal : MonoBehaviour
                                 greenPortal = Instantiate(greenPortal, hit.collider.transform);
                                 greenPortal.name = "GreenPortal";
                             }
+                            // Portal wird gedreht, je nach Wand
                             greenPortal.transform.rotation = hit.transform.rotation;
+                            float angleOfPortal = hit.transform.rotation.eulerAngles.z;
+
+                            if (angleOfPortal == 0)
+                            {
+                                greenPortal.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = greenPortalTopSprite;
+                            }
+                            else if (angleOfPortal == 90)
+                            {
+                                greenPortal.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = greenPortalLeftSprite;
+                            }
+                            else if (angleOfPortal == 270)
+                            {
+                                greenPortal.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = greenPotalRightSprite;
+                            }
+                            greenPortal.transform.GetChild(0).GetComponent<SpriteRenderer>().flipY = true;
+
                             greenPortal.transform.position = hit.collider.transform.position;
                         }
                     }
 
 
                     // Pinkes Portal
-                    else if (Input.GetMouseButtonDown(1))
+                    if (Input.GetMouseButtonDown(1))
                     {
                         if (Vector2.Distance(hit.transform.position, greenPortal.transform.position) <= 0.1f)
                         {
-                            Debug.Log("Portale überlappen sich, pinkes Portal nicht gesetzt");
+                            Debug.Log("Portale überlappen sich, grünes Portal nicht gesetzt");
                         }
                         else
                         {
@@ -77,9 +102,26 @@ public class PlacingPortal : MonoBehaviour
                             {
                                 pinkPortalOnWall = true;
                                 pinkPortal = Instantiate(pinkPortal, hit.collider.transform);
-                                pinkPortal.name = "PinkPortal";
+                                pinkPortal.name = "GreenPortal";
                             }
+                            // Portal wird gedreht, je nach Wand
                             pinkPortal.transform.rotation = hit.transform.rotation;
+                            float angleOfPortal = hit.transform.rotation.eulerAngles.z;
+
+                            if (angleOfPortal == 0)
+                            {
+                                pinkPortal.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = pinkPortalTopSprite;
+                            }
+                            else if (angleOfPortal == 90)
+                            {
+                                pinkPortal.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = pinkPortalLeftSprite;
+                            }
+                            else if (angleOfPortal == 270)
+                            {
+                                pinkPortal.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = pinkPotalRightSprite;
+                            }
+                            pinkPortal.transform.GetChild(0).GetComponent<SpriteRenderer>().flipY = true;
+
                             pinkPortal.transform.position = hit.collider.transform.position;
                         }
                     }
