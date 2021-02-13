@@ -42,8 +42,6 @@ public class PlacingPortal : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position, 1000f, 1 << LayerMask.NameToLayer("PrettyWall"));
             if (hit.collider != null)
             {
-
-
                 portalTarget = hit.transform.position - transform.position;
                 Debug.DrawRay(transform.position, portalTarget, Color.green, 1f);
                 //Debug.Log(hit.collider.name);
@@ -73,16 +71,24 @@ public class PlacingPortal : MonoBehaviour
                             if (angleOfPortal == 0)
                             {
                                 greenPortal.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = greenPortalTopSprite;
+                                greenPortal.transform.GetChild(0).transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+                                greenPortal.transform.GetChild(0).GetComponent<SpriteRenderer>().flipX = false;
+                                greenPortal.transform.GetChild(0).GetComponent<SpriteRenderer>().flipY = false;
                             }
                             else if (angleOfPortal == 90)
                             {
                                 greenPortal.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = greenPortalLeftSprite;
+                                greenPortal.transform.GetChild(0).transform.rotation = Quaternion.Euler(new Vector3(0, 0, 180));
+                                greenPortal.transform.GetChild(0).GetComponent<SpriteRenderer>().flipX = true;
+                                greenPortal.transform.GetChild(0).GetComponent<SpriteRenderer>().flipY = true;
                             }
                             else if (angleOfPortal == 270)
                             {
                                 greenPortal.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = greenPotalRightSprite;
+                                greenPortal.transform.GetChild(0).transform.rotation = Quaternion.Euler(new Vector3(0, 0, 180));
+                                greenPortal.transform.GetChild(0).GetComponent<SpriteRenderer>().flipX = true;
+                                greenPortal.transform.GetChild(0).GetComponent<SpriteRenderer>().flipY = true;
                             }
-                            greenPortal.transform.GetChild(0).GetComponent<SpriteRenderer>().flipY = true;
 
                             greenPortal.transform.position = hit.collider.transform.position;
                         }
@@ -111,16 +117,24 @@ public class PlacingPortal : MonoBehaviour
                             if (angleOfPortal == 0)
                             {
                                 pinkPortal.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = pinkPortalTopSprite;
+                                pinkPortal.transform.GetChild(0).transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+                                pinkPortal.transform.GetChild(0).GetComponent<SpriteRenderer>().flipX = false;
+                                pinkPortal.transform.GetChild(0).GetComponent<SpriteRenderer>().flipY = false;
                             }
                             else if (angleOfPortal == 90)
                             {
                                 pinkPortal.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = pinkPortalLeftSprite;
+                                pinkPortal.transform.GetChild(0).transform.rotation = Quaternion.Euler(new Vector3(0, 0, 180));
+                                pinkPortal.transform.GetChild(0).GetComponent<SpriteRenderer>().flipX = true;
+                                pinkPortal.transform.GetChild(0).GetComponent<SpriteRenderer>().flipY = true;
                             }
                             else if (angleOfPortal == 270)
                             {
                                 pinkPortal.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = pinkPotalRightSprite;
+                                pinkPortal.transform.GetChild(0).transform.rotation = Quaternion.Euler(new Vector3(0, 0, 180));
+                                pinkPortal.transform.GetChild(0).GetComponent<SpriteRenderer>().flipX = true;
+                                pinkPortal.transform.GetChild(0).GetComponent<SpriteRenderer>().flipY = true;
                             }
-                            pinkPortal.transform.GetChild(0).GetComponent<SpriteRenderer>().flipY = true;
 
                             pinkPortal.transform.position = hit.collider.transform.position;
                         }

@@ -63,7 +63,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   greenPortal: {fileID: 6113548176652234511, guid: 3265a6e398af0d14da7961c51282586d, type: 3}
+  greenPortalTopSprite: {fileID: 0}
+  greenPotalRightSprite: {fileID: 0}
+  greenPortalLeftSprite: {fileID: 0}
   pinkPortal: {fileID: 6865531840956286904, guid: c6bccc047a8bc3f4a9435d418ec16b4a, type: 3}
+  pinkPortalTopSprite: {fileID: 21300000, guid: 54b4b0995366a8046a09e704aba33aee, type: 3}
+  pinkPotalRightSprite: {fileID: 21300000, guid: ed1b7ae66ba94c04f8a24463150de29c, type: 3}
+  pinkPortalLeftSprite: {fileID: 21300000, guid: d9f3c50cd00e7ef45a94b09eff40b255, type: 3}
   portalWall: {fileID: 2863829099835791647, guid: 39f54c343c185a64896b3f7511a440e6, type: 3}
 --- !u!212 &2593647427226503510
 SpriteRenderer:
