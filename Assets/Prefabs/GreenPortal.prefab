@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1037475900981838063}
   - component: {fileID: 5287749334890801840}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GreenPortalSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 6113548176652234496}
   - component: {fileID: 6113548176652234500}
   - component: {fileID: 6113548176652234497}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GreenPortal
   m_TagString: GreenPortal
   m_Icon: {fileID: 0}
