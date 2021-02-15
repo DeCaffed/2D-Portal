@@ -19,6 +19,8 @@ public class PlacingPortal : MonoBehaviour
 
     public GameObject portalWall;
 
+    public LaserSource crystal;
+
     Vector3 portalTarget;
 
     // Start is called before the first frame update
@@ -141,6 +143,7 @@ public class PlacingPortal : MonoBehaviour
                     }
                 }
             }
+            crystal.AskToShootLaser();
         }
     }
 }
