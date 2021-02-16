@@ -6,19 +6,26 @@ public class LaserSource : MonoBehaviour
 {
 
     private bool isLaserShot;
+    private bool ShootNextFrame;
     // Start is called before the first frame update
     void Start()
     {
-        isLaserShot = false;
+        isLaserShot = true;
     }
 
     // Update is called once per frame
-    void LateUpdate()
+    void Update()
     {
-        if (isLaserShot)
+       
+        if (ShootNextFrame)
         {
             ShootLaserAndGetTarget();
+            ShootNextFrame = false;
+        }
+        if (isLaserShot)
+        {
             isLaserShot = false;
+            ShootNextFrame = true;
         }
     }
 
@@ -27,13 +34,13 @@ public class LaserSource : MonoBehaviour
         isLaserShot = true;
     }
 
-    private Collider2D ShootLaserAndGetTarget()
+    private void ShootLaserAndGetTarget()
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.up, 1000f, (1 << LayerMask.NameToLayer("PrettyWall")) | ((1 << LayerMask.NameToLayer("Portal"))));
-        if (hit.collider != null)
+        if (hit.collider != null && (hit.collider.CompareTag("PinkPortal") || hit.collider.CompareTag("GreenPortal")))
         {
-            Debug.Log(hit.collider.tag);
+            hit.collider.gameObject.GetComponent<PortalConnect>().LaserHit();
         }
-        return hit.collider;
+        
     }
 }
