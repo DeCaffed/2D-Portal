@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PortalConnect : MonoBehaviour {
     [SerializeField] private GameObject laserPrefab;
+    [SerializeField]private GameObject redPrefab;
+    [SerializeField] private GameObject purplePrefab;
 
     private PortalConnect otherPortal;
     private bool touchLaser = false;
@@ -94,4 +96,16 @@ public class PortalConnect : MonoBehaviour {
     {
         return touchLaser;
     }
+    private void Update()
+    {
+        if (ChangeColor.isPurple)
+        {
+            laserPrefab = purplePrefab;
+        }
+        else
+        {
+            laserPrefab = redPrefab;
+        }
+    }
+
 }

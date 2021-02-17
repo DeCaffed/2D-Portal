@@ -6,9 +6,9 @@ public class CrystalCollide : MonoBehaviour
 {
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Source")
+        if (collision.gameObject.tag == "Source" )
         {
-            collision.gameObject.GetComponent<ChangeColor>().setPurple();
+            
         }
 
     }

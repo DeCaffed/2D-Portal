@@ -20,9 +20,17 @@ public class Item : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player") && collision.gameObject.GetComponent<CurrentItem>().currentItem == null)
         {
-            transform.position = new Vector3(7, -4.85f, 0);
-            transform.localScale = new Vector3(1.6f,1.6f,1.6f);
-            collision.gameObject.GetComponent<CurrentItem>().currentItem = this;
+            if(item == ItemType.Mirror)
+            {
+                transform.position = new Vector3(7.02f, -2.56f, 0.0f);
+                transform.localScale = new Vector3(1.6f, 1.6f, 1.6f);
+            }
+            else
+            {
+                transform.position = new Vector3(7, -4.85f, 0);
+                transform.localScale = new Vector3(1.6f, 1.6f, 1.6f);
+                collision.gameObject.GetComponent<CurrentItem>().currentItem = this;
+            }
         }
     }
 }

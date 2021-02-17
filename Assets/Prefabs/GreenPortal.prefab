@@ -169,3 +169,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   laserPrefab: {fileID: 4687125704915365292, guid: fd5b73ea889b2c24cacd329de99292d8, type: 3}
+  redPrefab: {fileID: 4687125704915365292, guid: fd5b73ea889b2c24cacd329de99292d8, type: 3}
+  purplePrefab: {fileID: 6956695275840667099, guid: 01a78ad8bcbc4f841b65e7cc8787999b, type: 3}
+  laser: {fileID: 0}

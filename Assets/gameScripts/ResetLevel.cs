@@ -8,5 +8,6 @@ public class ResetLevel : MonoBehaviour
     private void OnMouseDown()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        ChangeColor.isPurple = false;
     }
 }
