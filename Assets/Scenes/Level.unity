@@ -4354,6 +4354,7 @@ GameObject:
   - component: {fileID: 627226265}
   - component: {fileID: 627226264}
   - component: {fileID: 627226266}
+  - component: {fileID: 627226267}
   m_Layer: 7
   m_Name: RedCrystal
   m_TagString: Source
@@ -4483,6 +4484,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 95320c78bc153c64fa23ea6138332dd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &627226267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 627226261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f14771d6fd72ae54785e2f368b73bcca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &818140810
@@ -5084,6 +5097,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1132856766}
   - component: {fileID: 1132856765}
+  - component: {fileID: 1132856767}
   m_Layer: 0
   m_Name: RedLaz0r
   m_TagString: Laser
@@ -5156,6 +5170,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1132856767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1132856764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f3055b1e2dfc31478dbeb57dd4abece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  redLaser: {fileID: 0}
+  purpleLaser: {fileID: 21300000, guid: cc9252c7da6da1b4c856f1fc7a0787d3, type: 3}
 --- !u!1 &1160545224
 GameObject:
   m_ObjectHideFlags: 0
