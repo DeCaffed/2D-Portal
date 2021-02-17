@@ -42,13 +42,18 @@ public class PlacingPortal : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
         {
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position, 1000f, 1 << LayerMask.NameToLayer("PrettyWall"));
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position, 1000f, 1 << LayerMask.NameToLayer("PrettyWall")| 1 << LayerMask.NameToLayer("LaserCollide"));
             if (hit.collider != null)
             {
                 portalTarget = hit.transform.position - transform.position;
                 Debug.DrawRay(transform.position, portalTarget, Color.green, 1f);
                 //Debug.Log(hit.collider.name);
 
+                //if (hit.transform.CompareTag("BlockPortal"))
+               // {
+                 //   Debug.Log("Hit Wall");
+               // }
+                
                 if (hit.transform.CompareTag("PortalWall"))
                 {
 
