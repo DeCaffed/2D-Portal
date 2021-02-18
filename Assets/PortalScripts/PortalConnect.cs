@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class PortalConnect : MonoBehaviour {
     [SerializeField] private GameObject laserPrefab;
-    [SerializeField]private GameObject redPrefab;
+    [SerializeField] private GameObject redPrefab;
     [SerializeField] private GameObject purplePrefab;
+    [SerializeField] private LayerMask laserConnect;
 
     private PortalConnect otherPortal;
     private bool touchLaser = false;
+    private bool activeLaser;
 
     public enum Direction {
         left,
@@ -30,14 +32,17 @@ public class PortalConnect : MonoBehaviour {
         if (otherPortal.laser != null)
         {
             otherPortal.DestroyLaser();
+            activeLaser = true;
         }
         if (laser != null)
         {
             DestroyLaser();
+            //activeLaser = false;
         }
         if (partner.TouchLaser())
         {
             ShootNewLaser();
+            activeLaser = true;
         }
     }
 
@@ -85,7 +90,7 @@ public class PortalConnect : MonoBehaviour {
                 break;
         }
 
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, vectorDirection, 1000f, (1 << LayerMask.NameToLayer("LaserCollide")));
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, vectorDirection, 1000f, laserConnect);
         return hit.distance;
     }
 
@@ -96,6 +101,13 @@ public class PortalConnect : MonoBehaviour {
     {
         return touchLaser;
     }
+
+
+    private void Start()
+    {
+        activeLaser = false;
+    }
+
     private void Update()
     {
         if (ChangeColor.isPurple)
@@ -105,6 +117,12 @@ public class PortalConnect : MonoBehaviour {
         else
         {
             laserPrefab = redPrefab;
+        }
+
+        if (activeLaser)
+        {
+            DestroyLaser();
+            ShootNewLaser();
         }
     }
 

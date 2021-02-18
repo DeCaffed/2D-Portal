@@ -22,12 +22,12 @@ public class Item : MonoBehaviour
         {
             if(item == ItemType.Mirror)
             {
-                transform.position = new Vector3(7.02f, -2.56f, 0.0f);
+                transform.position = new Vector3(6.92f, -2.56f, 0.0f);
                 transform.localScale = new Vector3(1.6f, 1.6f, 1.6f);
             }
             else
             {
-                transform.position = new Vector3(7, -4.85f, 0);
+                transform.position = new Vector3(6.92f, -4.833f, 0.0f);
                 transform.localScale = new Vector3(1.6f, 1.6f, 1.6f);
                 collision.gameObject.GetComponent<CurrentItem>().currentItem = this;
             }
