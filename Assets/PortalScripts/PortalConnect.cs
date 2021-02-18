@@ -7,17 +7,16 @@ public class PortalConnect : MonoBehaviour {
     [SerializeField] private GameObject redPrefab;
     [SerializeField] private GameObject purplePrefab;
     [SerializeField] private LayerMask laserConnect;
-
+    private PlayerController player;
     private PortalConnect otherPortal;
     private bool touchLaser = false;
-    private bool activeLaser;
-
+    public bool playerHit;
     public enum Direction {
         left,
         right,
         up,
     }
-
+    
     private Direction direction;
 
     public GameObject laser;
@@ -32,17 +31,14 @@ public class PortalConnect : MonoBehaviour {
         if (otherPortal.laser != null)
         {
             otherPortal.DestroyLaser();
-            activeLaser = true;
         }
         if (laser != null)
         {
             DestroyLaser();
-            //activeLaser = false;
         }
         if (partner.TouchLaser())
         {
             ShootNewLaser();
-            activeLaser = true;
         }
     }
 
@@ -91,6 +87,14 @@ public class PortalConnect : MonoBehaviour {
         }
 
         RaycastHit2D hit = Physics2D.Raycast(transform.position, vectorDirection, 1000f, laserConnect);
+        if (hit.collider.gameObject.CompareTag("Player") && Item.GetMirror())
+        {
+            player.OnLaserHit();
+        }
+        else
+        {
+            playerHit = false;
+        }
         return hit.distance;
     }
 
@@ -105,7 +109,7 @@ public class PortalConnect : MonoBehaviour {
 
     private void Start()
     {
-        activeLaser = false;
+        player = FindObjectOfType<PlayerController>();
     }
 
     private void Update()
@@ -119,11 +123,14 @@ public class PortalConnect : MonoBehaviour {
             laserPrefab = redPrefab;
         }
 
-        if (activeLaser)
+        if (!Item.GetMirror())
         {
-            DestroyLaser();
-            ShootNewLaser();
+            laserConnect = LayerMask.GetMask("LaserCollide");
         }
+        else
+        {
+            laserConnect += LayerMask.GetMask("Player");
+        }
+        
     }
-
 }

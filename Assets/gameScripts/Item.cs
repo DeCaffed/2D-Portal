@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
+    private static bool hasMirror;
     public enum ItemType
     {
         BlueCrystal,
@@ -24,6 +25,7 @@ public class Item : MonoBehaviour
             {
                 transform.position = new Vector3(6.92f, -2.56f, 0.0f);
                 transform.localScale = new Vector3(1.6f, 1.6f, 1.6f);
+                hasMirror = true;
             }
             else
             {
@@ -32,5 +34,9 @@ public class Item : MonoBehaviour
                 collision.gameObject.GetComponent<CurrentItem>().currentItem = this;
             }
         }
+    }
+    public static bool GetMirror()
+    {
+        return hasMirror;
     }
 }

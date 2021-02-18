@@ -50,6 +50,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 5
   animator: {fileID: 2593647427226503512}
+  portalPink: {fileID: 0}
+  portalGreen: {fileID: 0}
+  laserPrefab: {fileID: 6956695275840667099, guid: 01a78ad8bcbc4f841b65e7cc8787999b, type: 3}
+  laserConnect:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!114 &6268760909291762033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,12 +68,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41978dd33b3d6fa4680ee39a7ad1f17e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  greenPortalPrefab: {fileID: 0}
+  greenPortalPrefab: {fileID: 5320326636657225275, guid: 3265a6e398af0d14da7961c51282586d, type: 3}
   greenPortal: {fileID: 0}
-  greenPortalTopSprite: {fileID: 0}
-  greenPortalRightSprite: {fileID: 0}
-  greenPortalLeftSprite: {fileID: 0}
-  pinkPortalPrefab: {fileID: 0}
+  greenPortalTopSprite: {fileID: 21300000, guid: 69210e9de8037134494dc74f013c1e39, type: 3}
+  greenPortalRightSprite: {fileID: 21300000, guid: da0b73466b18c1a40b47ede6b2bb10d4, type: 3}
+  greenPortalLeftSprite: {fileID: 21300000, guid: dacdede4507692f4e89bca150c2fe357, type: 3}
+  pinkPortalPrefab: {fileID: -7005132912249189411, guid: c6bccc047a8bc3f4a9435d418ec16b4a, type: 3}
   pinkPortal: {fileID: 0}
   pinkPortalTopSprite: {fileID: 21300000, guid: 54b4b0995366a8046a09e704aba33aee, type: 3}
   pinkPotalRightSprite: {fileID: 21300000, guid: ed1b7ae66ba94c04f8a24463150de29c, type: 3}
