@@ -2,30 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PortalConnect : MonoBehaviour {
+public class PortalConnect : MonoBehaviour
+{
     [SerializeField] private GameObject laserPrefab;
     [SerializeField] private GameObject redPrefab;
     [SerializeField] private GameObject purplePrefab;
     [SerializeField] private LayerMask laserConnect;
     private PlayerController player;
     private PortalConnect otherPortal;
+
     private bool touchLaser = false;
     public bool playerHit;
-    public enum Direction {
+    public enum Direction
+    {
         left,
         right,
         up,
     }
-    
+
     private Direction direction;
 
     public GameObject laser;
+    BoxCollider2D laserCollider;
 
-    public void SetDirection(PortalConnect.Direction newDirection) {
+    public void SetDirection(PortalConnect.Direction newDirection)
+    {
         direction = newDirection;
     }
 
-    public void SetPartner(PortalConnect partner) {
+    public void SetPartner(PortalConnect partner)
+    {
         touchLaser = false;
         otherPortal = partner;
         if (otherPortal.laser != null)
@@ -42,18 +48,23 @@ public class PortalConnect : MonoBehaviour {
         }
     }
 
-    public void LaserHit() {
-        if (otherPortal != null && !touchLaser) {
+    public void LaserHit()
+    {
+        if (otherPortal != null && !touchLaser)
+        {
             touchLaser = true;
             otherPortal.ShootNewLaser();
         }
     }
 
-    public void ShootNewLaser() {
+    public void ShootNewLaser()
+    {
         float spriteLength = CheckRayCastDistance();
         Vector3 spriteDirection = Vector3.zero;
         Vector3 spriteSpawnDirection = Vector3.zero;
-        switch (direction) {
+
+        switch (direction)
+        {
             case Direction.left:
                 spriteDirection = Vector3.forward * 270;
                 spriteSpawnDirection = transform.position + Vector3.right * (spriteLength / 2);
@@ -68,13 +79,20 @@ public class PortalConnect : MonoBehaviour {
                 break;
         }
 
-        laser = Instantiate(laserPrefab, spriteSpawnDirection, Quaternion.Euler(spriteDirection),transform);
-        laser.GetComponent<SpriteRenderer>().size = new Vector2(1, spriteLength);
+        laser = Instantiate(laserPrefab, spriteSpawnDirection, Quaternion.Euler(spriteDirection), transform);
+        laser.GetComponent<SpriteRenderer>().size = new Vector2(1f, spriteLength);
+        
+        laserCollider = laser.GetComponent<BoxCollider2D>();
+        laserCollider.size = new Vector2(0.1f, laser.GetComponent<SpriteRenderer>().size.y);
+
+
     }
 
-    public float CheckRayCastDistance() {
+    public float CheckRayCastDistance()
+    {
         Vector3 vectorDirection = Vector3.zero;
-        switch (direction) {
+        switch (direction)
+        {
             case Direction.left:
                 vectorDirection = Vector3.right;
                 break;
@@ -98,7 +116,8 @@ public class PortalConnect : MonoBehaviour {
         return hit.distance;
     }
 
-    public void DestroyLaser() {
+    public void DestroyLaser()
+    {
         Destroy(laser);
     }
     public bool TouchLaser()
@@ -131,6 +150,6 @@ public class PortalConnect : MonoBehaviour {
         {
             laserConnect += LayerMask.GetMask("Player");
         }
-        
+
     }
 }

@@ -15,7 +15,7 @@ public class ChangeColor : MonoBehaviour
     }
 
 
-    public void setPurple()
+    public void SetPurple()
     {
         GetComponent<SpriteRenderer>().sprite = purpleLaser;
         isPurple = true;

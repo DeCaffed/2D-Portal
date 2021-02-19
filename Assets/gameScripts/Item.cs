@@ -16,20 +16,32 @@ public class Item : MonoBehaviour
     {
         Destroy(gameObject);
     }
-    
+
+    public GameObject itemInventar;
+    public GameObject mirrorInventar;
+
+    void Start()
+    {
+        itemInventar = GameObject.FindGameObjectWithTag("ItemBoxInventarSlot");
+        mirrorInventar = GameObject.FindGameObjectWithTag("MirrorBoxInventarSlot");
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player") && collision.gameObject.GetComponent<CurrentItem>().currentItem == null)
         {
-            if(item == ItemType.Mirror)
+            // Spiegelei
+            if (item == ItemType.Mirror)
             {
-                transform.position = new Vector3(6.92f, -2.56f, 0.0f);
+                transform.position = mirrorInventar.transform.position;
                 transform.localScale = new Vector3(1.6f, 1.6f, 1.6f);
                 hasMirror = true;
             }
+
+            // Item
             else
             {
-                transform.position = new Vector3(6.92f, -4.833f, 0.0f);
+                transform.position = itemInventar.transform.position - new Vector3(0f, 0.2f, 0f);
                 transform.localScale = new Vector3(1.6f, 1.6f, 1.6f);
                 collision.gameObject.GetComponent<CurrentItem>().currentItem = this;
             }

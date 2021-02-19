@@ -8,6 +8,8 @@ public class CurrentItem : MonoBehaviour
     public Item mirrorPrefab;
     public Transform position;
 
+    public bool hasMirror;
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Source") && currentItem != null)
@@ -16,13 +18,18 @@ public class CurrentItem : MonoBehaviour
             currentItem.UseItem();
             if (currentItem.item == Item.ItemType.BlueCrystal)
             {
-                foreach(GameObject go in GameObject.FindGameObjectsWithTag("Laser")) {
-
-                    go.GetComponent<ChangeColor>().setPurple();
+                foreach (GameObject go in GameObject.FindGameObjectsWithTag("Laser"))
+                {
+                    go.GetComponent<ChangeColor>().SetPurple();
                     Instantiate(mirrorPrefab, new Vector3(-1.4f, -3.8f, 0.0f), Quaternion.identity);
                 }
                 //gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 0.6367924f, 0.6830202f);     //Lightly Red laser.
             }
+        }
+
+        if (collision.gameObject.CompareTag("Mirror"))
+        {
+            hasMirror = true;
         }
     }
 }
